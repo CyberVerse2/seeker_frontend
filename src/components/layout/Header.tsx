@@ -9,10 +9,10 @@ const Header = () => {
 
   const navigation = [
     { name: 'How It Works', href: '#how-it-works' },
+    { name: 'Use Cases', href: '#use-cases' },
     { name: 'Products', href: '#products' },
     { name: 'Roadmap', href: '#roadmap' },
     { name: 'About', href: '#about' },
-    { name: 'Use Cases', href: '/use-cases' }
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
