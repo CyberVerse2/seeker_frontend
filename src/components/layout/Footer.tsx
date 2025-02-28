@@ -1,83 +1,145 @@
-import { Twitter, Linkedin, Github } from 'lucide-react';
+import { Github } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import ScrambleButton from '../ScrambleButton';
+import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const navigation = {
-    main: [
+    company: [
       { name: 'About Seeker', href: '/about' },
-      { name: 'Contact', href: '/contact' },
+      { name: 'Contact', href: '/contact' }
+    ],
+    legal: [
       { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
+      { name: 'Terms of Service', href: '/terms' }
     ],
     social: [
       {
         name: 'Twitter',
-        href: '#',
-        icon: Twitter,
-      },
-      {
-        name: 'LinkedIn',
-        href: '#',
-        icon: Linkedin,
+        href: 'https://x.com/SeekerOracle',
+        icon: FaXTwitter
       },
       {
         name: 'GitHub',
-        href: '#',
-        icon: Github,
-      },
-    ],
+        href: 'https://github.com/CyberVerse2/seeker_frontend',
+        icon: Github
+      }
+    ]
   };
 
   return (
-    <footer className="bg-secondary mt-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <nav className="flex flex-wrap justify-center -mx-5 -my-2">
-          {navigation.main.map((item) => (
-            <div key={item.name} className="px-5 py-2">
-              <a
-                href={item.href}
-                className="text-gray-400 hover:text-primary transition-colors"
-              >
-                {item.name}
-              </a>
-            </div>
-          ))}
-        </nav>
-        
-        <div className="mt-8 flex justify-center space-x-6">
-          {navigation.social.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-400 hover:text-primary transition-colors"
+    <footer className="relative border-t border-secondary-light overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 bg-[rgb(252,252,253)]"></div>
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 border-x border-secondary-light">
+          {/* Left Section */}
+          <div className="p-12 md:p-24 border-b md:border-b-0 md:border-r border-secondary-light">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
             >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-        
-        <div className="mt-8 flex flex-col items-center">
-          <div className="max-w-md w-full">
-            <h3 className="text-center text-white text-sm font-semibold mb-4">
-              Stay informed with Seeker's latest updates
-            </h3>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 min-w-0 px-4 py-2 text-gray-900 placeholder-gray-500 bg-white border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+              <Link to="/" className="inline-block mb-12">
+                <img src="/logo.svg" alt="Seeker" className="h-8" />
+              </Link>
+
+              <h3 className="text-3xl font-[Bricolage_Grotesque] font-bold mb-6">Stay Updated</h3>
+              <p className="text-gray-500 mb-8 text-lg">
+                Join our newsletter to get the latest updates on decentralized information
+                verification.
+              </p>
+              <ScrambleButton
+                text="Subscribe"
+                className="text-secondary hover:text-primary font-medium px-12 py-3 border border-secondary hover:border-primary flex items-center justify-center transition-colors"
+                onClick={() => {}}
               />
-              <button
-                type="submit"
-                className="px-4 py-2 text-white bg-primary hover:bg-primary-light rounded-md transition-colors"
-              >
-                Subscribe
-              </button>
-            </form>
+            </motion.div>
           </div>
-          <p className="mt-8 text-center text-gray-400 text-sm">
+
+          {/* Right Section */}
+          <div className="p-12 md:p-24">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="space-y-12"
+            >
+              {/* Navigation Grid */}
+              <div className="grid grid-cols-2 gap-12">
+                <div>
+                  <h4 className="font-[Bricolage_Grotesque] font-bold mb-6">Company</h4>
+                  <ul className="space-y-4">
+                    {navigation.company.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          to={item.href}
+                          className="text-secondary-light hover:text-primary transition-colors inline-flex items-center group"
+                        >
+                          <span>{item.name}</span>
+                          <div className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="w-4 h-[1px] bg-primary"></div>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-[Bricolage_Grotesque] font-bold mb-6">Legal</h4>
+                  <ul className="space-y-4">
+                    {navigation.legal.map((item) => (
+                      <li key={item.name}>
+                        <Link
+                          to={item.href}
+                          className="text-secondary-light hover:text-primary transition-colors inline-flex items-center group"
+                        >
+                          <span>{item.name}</span>
+                          <div className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="w-4 h-[1px] bg-primary"></div>
+                          </div>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div>
+                <h4 className="font-[Bricolage_Grotesque] font-bold mb-6">Connect</h4>
+                <div className="flex gap-6">
+                  {navigation.social.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="text-secondary-light hover:text-primary transition-colors group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="sr-only">{item.name}</span>
+                      <div className="relative">
+                        <item.icon className="h-6 w-6" aria-hidden="true" />
+                        <div className="absolute -bottom-2 left-0 right-0 h-[1px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-x border-b border-secondary-light">
+          <div className="px-12 py-6 text-center text-secondary-light text-sm">
             &copy; {new Date().getFullYear()} Seeker. All rights reserved.
-          </p>
+          </div>
         </div>
       </div>
     </footer>

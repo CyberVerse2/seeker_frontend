@@ -2,7 +2,7 @@ import NetworkAnimation from '../components/NetworkAnimation';
 import '../components/NetworkAnimation.css';
 import { motion, Variants } from 'framer-motion';
 import ScrambleButton from '../components/ScrambleButton';
-import { FaArrowRight, FaTerminal, FaRobot, FaChrome, FaMobile, FaCode } from 'react-icons/fa6';
+import { FaArrowRight, FaTerminal, FaRobot, FaChrome, FaCode } from 'react-icons/fa6';
 
 const Home = () => {
   const textVariants: Variants = {
@@ -414,7 +414,7 @@ const Home = () => {
                 <div className={`absolute left-0 md:left-1/2 top-0 -translate-y-3 ${
                   milestone.align === "right" ? "-translate-x-1/2" : "translate-x-1/2"
                 }`}>
-                  <div className="w-6 h-6 rounded-full bg-[rgb(252,252,253)] border-2 border-primary relative z-10 group-hover:scale-150 group-hover:bg-primary transition-all duration-300">
+                  <div className="w-6 h-6 rounded-full bg-[rgb(252,252,253)] border-2 border-primary hidden md:block relative z-10 group-hover:scale-150 group-hover:bg-primary transition-all duration-300">
                     <div className="absolute inset-0.5 rounded-full bg-primary-light group-hover:bg-white transition-colors duration-300"></div>
                   </div>
                 </div>
