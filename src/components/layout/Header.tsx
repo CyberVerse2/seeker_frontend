@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { X, Menu } from 'lucide-react';
-import { FaArrowRight, FaGithub, FaXTwitter } from 'react-icons/fa6';
+import {  FaGithub, FaXTwitter } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Header = () => {
@@ -15,11 +15,29 @@ const Header = () => {
     { name: 'Use Cases', href: '/use-cases' }
   ];
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        const headerOffset = 100; // Account for fixed header
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+      setIsMenuOpen(false); // Close mobile menu after click
+    }
+  };
+
   return (
     <header className="fixed w-full z-50">
       <nav className="w-full max-w-7xl mx-auto px-4 md:px-2 mt-2 md:mt-6">
         <div className="flex gap-2 h-12 justify-between md:justify-center items-center">
-          <div className={`flex-shrink-0 bg-primary-light ${isMenuOpen? '': 'px-8'}`}>
+          <div className={`flex-shrink-0 ${isMenuOpen? '': 'px-8'}`}>
             <Link to="/" className="flex items-center h-12 gap-1">
               <img src="logo.svg" alt="seeker logo" className="h-5" />
               <span className="text-secondary font-[Bricolage_Grotesque] tracking-tight font-semibold text-xl transition-colors">
@@ -35,6 +53,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="text-secondary flex items-center h-full bg-primary-light hover:text-secondary px-12 text-sm font-[Bricolage_Grotesque] tracking-tight uppercase font-semibold transition-colors"
                 >
                   {item.name}
@@ -69,7 +88,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-secondary-light bg-primary-light hover:text-primary p-2"
+              className="text-secondary-light hover:text-primary p-2"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -98,8 +117,8 @@ const Header = () => {
                   },
                   closed: {
                     transition: {
-                      staggerChildren: 0.5,
-                      staggerDirection: 1
+                      staggerChildren: 0.05,
+                      staggerDirection: -1
                     }
                   }
                 }}
@@ -108,35 +127,19 @@ const Header = () => {
                   <motion.div
                     key={item.name}
                     variants={{
-                      open: { opacity: 1, x: 0 },
-                      closed: { opacity: 0, x: -100 }
+                      open: { opacity: 1, y: 0 },
+                      closed: { opacity: 0, y: -10 }
                     }}
-                    className="hover:bg-primary-light transition-colors duration-300"
                   >
                     <Link
                       to={item.href}
-                      className="text-secondary-light flex items-center group hover:text-primary py-6 transition-colors duration-150 px-3 text-3xl font-[Bricolage_Grotesque] tracking-tight font-medium"
-                      onClick={() => setIsMenuOpen(false)}
+                      onClick={(e) => handleNavClick(e, item.href)}
+                      className="block px-3 py-4 text-base font-[Bricolage_Grotesque] font-medium text-secondary hover:text-primary transition-colors"
                     >
-                      <span className="mr-auto">{item.name}</span>
-                      <FaArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:-rotate-45 transition-all duration-300" />
+                      {item.name}
                     </Link>
                   </motion.div>
                 ))}
-                <motion.div
-                  variants={{
-                    open: { opacity: 1, x: 0 },
-                    closed: { opacity: 0, x: -20 }
-                  }}
-                >
-                  <Link
-                    to="#get-started"
-                    className="block w-full px-3 py-4 text-xl font-[Bricolage_Grotesque] font-medium text-center text-white bg-primary"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Join Waitlist
-                  </Link>
-                </motion.div>
               </motion.div>
             </motion.div>
           )}

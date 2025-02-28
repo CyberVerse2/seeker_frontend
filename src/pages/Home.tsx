@@ -84,7 +84,7 @@ const Home = () => {
 
       {/* Vision Section */}
       <section className="py-32 border-b border-secondary-light overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 border-x border-secondary-light">
+        <div className="max-w-7xl mx-auto px-4 border-x border-white/10">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -186,7 +186,7 @@ const Home = () => {
                 <div className="text-6xl font-[Bricolage_Grotesque] font-bold mb-4">
                   {stat.number}
                 </div>
-                <div className="text-xl text-white/80">{stat.label}</div>
+                <div className="text-xl text-secondary/70">{stat.label}</div>
               </div>
             ))}
           </motion.div>
@@ -194,7 +194,7 @@ const Home = () => {
       </section>
 
       {/* How it Works Section */}
-      <section className="py-32 border-b border-secondary-light">
+      <section id="how-it-works" className="py-32 border-b border-secondary-light">
         <div className="max-w-7xl mx-auto px-4 border-x border-secondary-light">
           <motion.div
             initial={{ opacity: 0 }}
@@ -251,7 +251,7 @@ const Home = () => {
       </section>
 
       {/* Products Section */}
-      <section className="py-32 border-b border-secondary-light bg-primary-light">
+      <section id="products" className="py-32 border-b border-secondary-light bg-primary-light">
         <div className="max-w-7xl mx-auto px-4 border-x border-secondary-light">
           <motion.div
             initial={{ opacity: 0 }}
@@ -261,7 +261,7 @@ const Home = () => {
             className="mb-24"
           >
             <h2 className="text-5xl font-[Bricolage_Grotesque] font-bold mb-6">
-              Our Products
+              Products
             </h2>
             <div className="h-[1px] w-24 bg-primary"></div>
           </motion.div>
@@ -335,7 +335,7 @@ const Home = () => {
       </section>
 
       {/* Roadmap Section */}
-      <section className="py-32 border-b border-secondary-light overflow-hidden">
+      <section id="roadmap" className="py-32 border-b border-secondary-light overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 border-x border-secondary-light">
           <motion.div
             initial={{ opacity: 0 }}

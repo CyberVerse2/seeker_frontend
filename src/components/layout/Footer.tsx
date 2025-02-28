@@ -1,7 +1,7 @@
 import { Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import ScrambleButton from '../ScrambleButton';
+// import ScrambleButton from '../ScrambleButton';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -29,7 +29,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative border-t border-secondary-light overflow-hidden">
+    <footer className="relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[rgb(252,252,253)]"></div>
 
@@ -37,7 +37,7 @@ const Footer = () => {
       <div className="relative max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 border-x border-secondary-light">
           {/* Left Section */}
-          <div className="p-12 md:p-24 border-b md:border-b-0 md:border-r border-secondary-light">
+          {/* <div className="p-12 md:p-24 border-b md:border-b-0 md:border-r border-secondary-light">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -59,7 +59,7 @@ const Footer = () => {
                 onClick={() => {}}
               />
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Right Section */}
           <div className="p-12 md:p-24">
