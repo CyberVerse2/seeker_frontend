@@ -37,7 +37,7 @@ const Header = () => {
     <header className="fixed w-full z-50">
       <nav className="w-full max-w-7xl mx-auto px-4 md:px-2 mt-2 md:mt-6">
         <div className="flex gap-2 h-12 justify-between md:justify-center items-center">
-          <div className={`flex-shrink-0 ${isMenuOpen? '': 'px-8'}`}>
+          <div className={`flex-shrink-0 ${isMenuOpen? '': 'px-8'} md:bg-primary-light`}>
             <Link to="/" className="flex items-center h-12 gap-1">
               <img src="logo.svg" alt="seeker logo" className="h-5" />
               <span className="text-secondary font-[Bricolage_Grotesque] tracking-tight font-semibold text-xl transition-colors">
