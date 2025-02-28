@@ -1,8 +1,7 @@
-import { Github } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 // import ScrambleButton from '../ScrambleButton';
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
   const navigation = {
@@ -23,7 +22,7 @@ const Footer = () => {
       {
         name: 'GitHub',
         href: 'https://github.com/CyberVerse2/seeker_frontend',
-        icon: Github
+        icon: FaGithub
       }
     ]
   };
