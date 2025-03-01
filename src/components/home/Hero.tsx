@@ -60,7 +60,7 @@ export default function Hero() {
 
           <ScrambleButton
             text="Join Waitlist"
-            className="bg-primary text-white px-12 py-3 font-medium flex items-center gap-1 hover:opacity-90 transition-opacity"
+            className="bg-primary text-white px-12 py-3 font-medium inline-flex items-center gap-1 hover:opacity-90 transition-opacity"
           />
         </div>
 
