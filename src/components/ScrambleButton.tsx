@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 interface ScrambleButtonProps {
   text: string;
   className?: string;
-  onClick?: () => void;
 }
 
-const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '', onClick }) => {
+const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '' }) => {
   const [displayText, setDisplayText] = useState(text);
   const [isHovering, setIsHovering] = useState(false);
 
@@ -51,15 +51,17 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '', o
   }, [isHovering, text]);
 
   return (
-    <button
+    <Link
+      to="https://docs.google.com/forms/d/e/1FAIpQLSdXH7QdAL0HtJ1L3uaUNPrpNxxOjayljtQZkZjssTw6c_Cs6g/viewform?usp=dialog"
+      target="_blank"
+      rel="noopener noreferrer"
       className={`relative cursor-pointer ${className}`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
-      onClick={onClick}
     >
       {displayText}
       <FaChevronRight size={12} />
-    </button>
+    </Link>
   );
 };
 
