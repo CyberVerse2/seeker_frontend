@@ -11,17 +11,18 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '', o
   const [displayText, setDisplayText] = useState(text);
   const [isHovering, setIsHovering] = useState(false);
 
-  const characters = '!@#$%^&*()_+-=[]{}|;:,.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  const characters =
+    '!@#$%^&*()_+-=[]{}|;:,.<>?/~`ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
-    
+
     if (isHovering) {
       let iteration = 0;
       const maxIterations = 10;
-      
+
       intervalId = setInterval(() => {
-        setDisplayText(prev => 
+        setDisplayText((prev) =>
           prev
             .split('')
             .map((_, index) => {
@@ -33,8 +34,8 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '', o
             .join('')
         );
 
-        iteration += 1/3;
-        
+        iteration += 1 / 3;
+
         if (iteration >= maxIterations) {
           clearInterval(intervalId);
           setDisplayText(text);
@@ -57,7 +58,7 @@ const ScrambleButton: React.FC<ScrambleButtonProps> = ({ text, className = '', o
       onClick={onClick}
     >
       {displayText}
-      <FaChevronRight size={12}/>
+      <FaChevronRight size={12} />
     </button>
   );
 };
