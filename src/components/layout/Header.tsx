@@ -82,7 +82,7 @@ const Header = () => {
                 <FaXTwitter size={20} />
               </Link>
               <Link
-                to="https://dexscreener.com/"
+                to="https://dexscreener.com/solana/fu8hizujfehmtmwr7gyldfxw6juiaruj1wz3i435k9yu"
                 target="_blank"
                 className="bg-primary px-4 hover:bg-primary-light group flex items-center justify-center py-4 transition-all transform animate-slide-up"
               >
